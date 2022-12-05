@@ -22,7 +22,7 @@ class Sensor(BASE):
     id = PartitionKeyColumn(UUID)
     capture = ClusteringKeyColumn(Timestamp, ordering=Ordering.Ascending)
     installation = Column(Address)
-    contact = Column(Set(Employee))
+    contact = Column(Set(Employee, frozen=True))
     temperature = Column(Decimal)
     humidity = Column(Decimal)
 
